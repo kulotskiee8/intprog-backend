@@ -23,10 +23,12 @@ export default function model(sequelize: any) {
     };
 
     const options = {
+        tableName: 'accounts',
+        freezeTableName: true,
         timestamps: false,
         defaultScope: { attributes: { exclude: ['passwordHash'] } },
         scopes: { withHash: { attributes: {}, } }
     };
-    
+
     return sequelize.define('account', attributes, options);
 }
